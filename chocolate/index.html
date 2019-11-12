@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <button onclick="myFunction1()">Insertar</button>
+    <script>
+        function myFunction1() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/insert?perfil=seguridad&nomina=S156&nombre=Alfonso&mac=miMac&grupo=Z000000049&contrasena=teodio&superusuario=usuario1';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction2()">Mostrar todos</button>
+    <script>
+        function myFunction2() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/showAll';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction3()">Borrar</button>
+    <script>
+        function myFunction3() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/delete?nomina=S98';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction4()">Buscar</button>
+    <script>
+        function myFunction4() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/search?nomina=S000000009';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction42()">Buscar:Grupo/nomSupervisor</button>
+    <script>
+        function myFunction42() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/searchGrupo?nomina=S00000008';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction43()">Buscar:Nombre/Mac</button>
+    <script>
+        function myFunction43() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/searchName?mac=00:00:2a:01:00:17';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction5()">Login</button>
+    <script>
+        function myFunction5() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/login?nomina=S100&contrasena=teodio';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+
+    <button onclick="myFunction6()">Modificar</button>
+    <script>
+        function myFunction6() {
+            const Http = new XMLHttpRequest();
+            const url='http://localhost:5000/modify?perfil=supervisor&nomina=S00000009&nombre=holo&mac=85448411&grupo=Z000000041';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+</body>

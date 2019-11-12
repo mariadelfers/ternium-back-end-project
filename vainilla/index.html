@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <button onclick="myFunction()">Click me</button>
+
+    <script>
+        function myFunction() {
+            const Http = new XMLHttpRequest();
+            const url='http://0.0.0.0:5000/record?mac=mac2&floorid=id_piso4&date=11/10/2018&hour=18:29:30';
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange=(e)=>{
+                console.log(Http.responseText)
+            }
+        }
+    </script>
+</body>
+</html>
