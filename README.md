@@ -1,12 +1,12 @@
-# Backend
+# IoT Ternium Project : Backend
 
 ## Napolitano
 
-Napolitano es la API creada por el equipo de backend del Semestre I de IoT 2018, se puede acceder a ella por medio de la siguiente IP:
+Napolitano is the API created by the IoT Semester I backend team in 2018, it can be accessed through the following IP:
 
 > http://138.68.225.156:5000
 
-Para obtener informacion de la API se debe de realizar una peticion GET hacia cualquiera de las rutas disponibles con sus respectivos parametros:
+To get information from the API, you should a GET request to any of the available routes with their respective parameters:
 
 ###### /login?nomina=&contrasena=
 ###### /insert?perfil=&nomina=&nombre=&mac=&grupo=&contrasena=&superusuario=
@@ -18,20 +18,23 @@ Para obtener informacion de la API se debe de realizar una peticion GET hacia cu
 ###### /modify?perfil=&nomina=&nombre=&mac=&grupo=
 ###### /record?mac=&floorid=&date=&hour=
 
-Regresa un flask.Response() y un status code 200. Se puede convertir en un JSON con JSON.parse(); la estructura de la respuesta depende de los parametros que se den, para saber la estructura del JSON se deben ver los comentarios en [vainilla/get_record.py](https://gitlab.com/semestreIOT/Backend/backend/blob/master/vainilla/get_record.py)
+It returns a flask.Response() and a status code 200. It could be transformed to a JSON with JSON.parse() 
+The structure of the response depends on the parameters sent.
+To know the JSON structure  you should see the comments in [vanilla/get_record.py](https://gitlab.com/semestreIOT/Backend/backend/blob/master /vanilla/get_record.py)
 
 ###### /danger?id_zone=&building=&floor=&data=
 
-Guarda una zona de riesgo en la base de datos con la informacion proporcionada, el id_zone debe ser unico y data debe de contener un numero divisible entre 4, ej: 
+Save a risk zone in the database with the information provided, the id_zone must be unique and data must contain a number divisible by 4, example:
 
 > /danger?id_zone=id_unico&building=ed1&floor=piso1&data=12.65 34.15 18.64 97.25
 
-En caso que no se proporcione alguno de los parametros o que alguna de estas condiciones no se cumpla se regresara un mensaje con el tipo de error y un status code 400, de lo contrario se regresara un status code 200 con un mensaje de "Done"
+
+If the request is incomplete, the API will return an error message with a status code 400. Otherwise, it will return a status code 200 and with a "Done" message.
 
 ###### /getDanger?id_zone=
 
-Regresa un flask.Response() y un status code 200. Se puede convertir en un JSON con JSON.parse(); en caso que se de un id_zone (y que este exista) la informacion mantendra la siguiente estructura:
-
+It returns a flask.Response() and a status code 200. It could be transformed to a JSON with JSON.parse() 
+If an id_zone is given (and it exists), the information will maintain the following structure:
 ```
 {
     _id : id_zoneX,
@@ -45,8 +48,7 @@ Regresa un flask.Response() y un status code 200. Se puede convertir en un JSON 
     }
 }
 ```
-
-Si no se proporciona un id_zone la informacion estara estructurada de la siguiente manera:
+If an id_zone is not provided, the information is structured as follows:
 
 ```
 {
@@ -68,17 +70,14 @@ Si no se proporciona un id_zone la informacion estara estructurada de la siguien
 
 ###### /delDanger?id_zone=
 
-Borra la zona de riesgo con el id dado
+Delete the risk zone with the given id
 
 ###### /modifyDanger?id_zone=&building=&floor=&data=
 
-Modifica la zona de riesgo con el id dado, se tienen que dar los parametros id_zone, building, floor, data (deben ser divisible entre 4) aun cuando alguno de estos datos no se modifiquen.
-
+It modifies a risk zone with the given id, the id_zone, building, floor, and data parameters must be given (they must be divisible by 4) even if some of these data are not modified
 
 ## Vainilla
-
-Base de Datos NoSQL, MongoDB, en donde se guarda información en tiempo real de ubicación de los trabajadores, alertas generadas y zonas de riesgo.
+It modifies a risk zone with the given id, the id_zone, building, floor, and data parameters must be given (they must be divisible by 4) even if some of these data are not modified.
 
 ## Chocolate
-
-Base de Datos SQL, MySQL, con información de los trabajadores, administradores, personal de seguridad, etc.
+SQL, MySQL Database, with information on workers, administrators, security personnel, etc.
